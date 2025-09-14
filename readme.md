@@ -48,7 +48,7 @@ To run this site locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[YOUR-USERNAME]/dheecuit-website.git
+   git clone https://github.com/jmksi00/dheecuit-website.git
    cd dheecuit-website
    ```
 
