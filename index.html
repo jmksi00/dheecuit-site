@@ -393,21 +393,61 @@
             event.preventDefault();
             const email = document.getElementById('email-signup').value;
             
-            // Replace this with your actual signup logic
+            // Basic email validation
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Store in localStorage temporarily (you'll want to connect to a service)
+            const subscribers = JSON.parse(localStorage.getItem('waitlist') || '[]');
+            
+            if (subscribers.includes(email)) {
+                alert('This email is already on our waitlist!');
+                return;
+            }
+            
+            subscribers.push(email);
+            localStorage.setItem('waitlist', JSON.stringify(subscribers));
+            
             alert(`Thanks for joining our waitlist! We'll notify ${email} when we launch the beta.`);
             
             // Clear the form
             document.getElementById('email-signup').value = '';
+            
+            // Optional: Send to external service
+            // You can integrate with services like Netlify Forms, Formspree, or EmailJS
         }
 
         // Smooth scrolling for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
+        });
+
+        // Security: Basic XSS protection
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        }
+
+        // Add some basic analytics tracking (privacy-friendly)
+        function trackEvent(eventName, eventData = {}) {
+            // You can integrate with privacy-friendly analytics like Plausible
+            console.log(`Event: ${eventName}`, eventData);
+        }
+
+        // Track page load
+        window.addEventListener('load', () => {
+            trackEvent('page_view', { page: 'landing' });
         });
     </script>
 </body>
