@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DheeCuit - Personalized Meal Planning Made Simple</title>
+  <meta name="description" content="Get custom diet-specific recipes, one-tap grocery lists, and stress-free meal prep — all in one AI-powered app.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:#FDFBF9;
+      --text:#1F2937;
+      --muted:#4B5563;
+      --emerald:#059669;
+      --emerald-dk:#047857;
+      --card:#FFFFFF;
+      --border:#E5E7EB;
+      --footer:#000000;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height:1.6;
+      color:var(--text);
+      background:var(--bg);
+      min-height:100vh;
+    }
+
+    .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+    /* Header */
+    .header {
+      background:#000;
+      padding:1rem 0;
+      position:fixed; width:100%; top:0; z-index:1000;
+    }
+    .nav {
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo {
+      height:44px;
+      display:block;
+    }
+
+    /* Hero */
+    .hero {
+      padding:120px 0 80px;
+      text-align:center;
+      color:var(--text);
+    }
+    .hero h1 {
+      font-family:Poppins; font-weight:800;
+      font-size:3.25rem; margin-bottom:1rem; color:var(--text);
+    }
+    .hero .subtitle {
+      font-size:1.15rem; color:var(--muted);
+      max-width:680px; margin:0.5rem auto 0;
+    }
+    .brand-story {
+      background:#fff;
+      border:1px solid var(--border);
+      padding:1.5rem; border-radius:16px;
+      margin:2rem auto; max-width:640px;
+    }
+
+    /* Buttons */
+    .cta-button {
+      display:inline-block;
+      background:var(--emerald);
+      color:#fff; padding:14px 28px;
+      border-radius:9999px;
+      font-family:Poppins; font-weight:600; font-size:1.05rem;
+      border:none; cursor:pointer;
+      box-shadow:0 6px 18px rgba(5,150,105,.20);
+      transition:transform .15s ease, background .15s ease, box-shadow .2s ease;
+      text-decoration:none;
+    }
+    .cta-button:hover {
+      background:var(--emerald-dk);
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(5,150,105,.28);
+    }
+
+    /* Sections */
+    .section { padding:80px 0; }
+    .section.white { background:var(--card); }
+    .section.light { background:#FAFAFA; }
+
+    .section-title {
+      text-align:center; font-family:Poppins; font-weight:700;
+      font-size:2.25rem; margin-bottom:2.5rem; color:var(--text);
+    }
+
+    /* Features */
+    .features {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:2rem; margin-top:2rem;
+    }
+    .feature {
+      text-align:center; padding:1.5rem; background:var(--card);
+      border:1px solid var(--border); border-radius:16px;
+      box-shadow:0 6px 18px rgba(2,6,23,.06);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .feature:hover {
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(2,6,23,.10);
+    }
+    .feature-icon {
+      width:64px; height:64px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1rem; font-size:1.6rem;
+      background:#ECFDF5; color:var(--emerald);
+    }
+    .feature h3 {
+      font-family:Poppins; font-weight:600; font-size:1.25rem; margin-bottom:.5rem;
+    }
+    .feature p { color:var(--muted); }
+
+    /* Pricing */
+    .pricing {
+      text-align:center; background:var(--card);
+      padding:2rem; border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:0 6px 18px rgba(2,6,23,.06);
+      max-width:520px; margin:0 auto;
+    }
+    .price {
+      font-family:Poppins; font-weight:700; font-size:2.5rem; color:var(--emerald);
+    }
+    .benefits {
+      list-style:none; text-align:left; max-width:380px; margin:1.5rem auto 0;
+    }
+    .benefits li { padding:.4rem 0; font-size:1rem; }
+    .checkmark { color:var(--emerald); font-weight:700; margin-right:.5rem; }
+
+    /* Waitlist */
+    .waitlist-form {
+      max-width:460px; margin:2rem auto; display:flex; gap:10px;
+    }
+    .email-input {
+      flex:1; padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:9999px;
+      font-size:1rem;
+      outline:none;
+      background:#fff; color:var(--text);
+    }
+    .email-input:focus {
+      border-color:#A7F3D0;
+      box-shadow:0 0 0 4px rgba(16,185,129,.15);
+    }
+
+    /* Footer */
+    .footer { background:var(--footer); color:#fff; text-align:center; padding:2.5rem 0; }
+    .footer .logo { color:#fff; height:36px; }
+
+    /* Responsive */
+    @media (max-width:768px){
+      .hero { padding:96px 0 64px; }
+      .hero h1 { font-size:2.4rem; }
+      .hero .subtitle { font-size:1rem; }
+      .waitlist-form { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <img src="https://raw.githubusercontent.com/your-username/dheecuit-assets/main/dheecuit-logo-dc-large-green-i.svg" alt="DheeCuit Logo" class="logo">
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Personalized Recipes,<br>Perfectly Cooked</h1>
+      <p class="subtitle">Get custom diet-specific recipes, one-tap grocery lists, and stress-free meal prep — all powered by AI and tailored to your tastes.</p>
+
+      <div class="brand-story">
+        <p><strong>Dhee</strong> (Greek for "Dinner") + <strong>Cuit</strong> (French for "Cooked") = <strong>DheeCuit</strong></p>
+        <p style="margin-top: 1rem; opacity: 0.9;">A smarter way to find and stick to diet-friendly meals, personalized just for you.</p>
+      </div>
+
+      <a href="#waitlist" class="cta-button">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section light">
+    <div class="container">
+      <h2 class="section-title">Everything You Need for Meal Success</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>AI-Powered Meal Plans</h3>
+          <p>Get personalized weekly meal plans that adapt to your dietary preferences, restrictions, and taste preferences.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🥗</div>
+          <h3>Diet-Specific Recipes</h3>
+          <p>Access recipes perfectly tailored for Keto, Vegan, Paleo, Mediterranean, and more.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🛒</div>
+          <h3>One-Tap Shopping Lists</h3>
+          <p>Generate complete grocery lists instantly from your meal plans.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>Progress Tracking</h3>
+          <p>Keep your health goals on track with simple insights and reminders.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⏱️</div>
+          <h3>Stress-Free Prep Mode</h3>
+          <p>Step-by-step cooking guidance and prep instructions that make eating simple.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>Personalized Experience</h3>
+          <p>The more you use DheeCuit, the better it gets at suggesting meals you'll love.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section white" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple, Fair Pricing</h2>
+      <div class="pricing">
+        <div class="price">Free</div>
+        <p class="price-subtitle">Start with our free plan, then upgrade for premium features</p>
+        <ul class="benefits">
+          <li><span class="checkmark">✓</span> Basic meal planning</li>
+          <li><span class="checkmark">✓</span> Essential diet filters</li>
+          <li><span class="checkmark">✓</span> Shopping list generation</li>
+          <li><span class="checkmark">✓</span> Core recipe collection</li>
+        </ul>
+        <p style="margin-top: 2rem; color: #666; font-size: 0.9rem;">
+          Premium features coming soon: Advanced planning, expanded recipes, nutrition tracking, and more.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section class="section" id="waitlist">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">We're Building Something Amazing</h2>
+      <p style="font-size:1.2rem; margin-bottom:2rem; color:var(--muted);">
+        Join the waitlist to be first to try the beta when we launch.
+      </p>
+
+      <!-- MailerLite form -->
+      <form class="waitlist-form"
+            action="https://assets.mailerlite.com/jsonp/1792264/forms/165277543940753381/subscribe"
+            method="post" target="_blank">
+        <input type="email" class="email-input" name="fields[email]" placeholder="Enter your email address" required>
+        <button type="submit" class="cta-button">Join Waitlist</button>
+        <input type="hidden" name="ml-submit" value="1">
+      </form>
+
+      <p style="font-size:0.9rem; color:var(--muted); margin-top:1rem;">
+        No spam. We'll only email you when the beta is ready.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <img src="https://raw.githubusercontent.com/your-username/dheecuit-assets/main/dheecuit-logo-dc-large-green-i.svg" alt="DheeCuit Logo" class="logo">
+        <p>&copy; 2025 DheeCuit. Making meal planning personal.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
