@@ -358,18 +358,27 @@
                 Join the waitlist to be first to try the beta when we launch.
             </p>
             
-            <form class="waitlist-form" onsubmit="handleSubmit(event)">
-                <input 
-                    type="email" 
-                    class="email-input" 
-                    placeholder="Enter your email address" 
-                    required
-                    id="email-signup"
-                >
-                <button type="submit" class="cta-button">
-                    Join Waitlist
-                </button>
-            </form>
+            <form 
+    class="waitlist-form" 
+    action="https://assets.mailerlite.com/jsonp/1792264/forms/165277543940753381/subscribe"
+    method="POST"
+    target="_blank"
+>
+    <input type="hidden" name="ml-submit" value="1">
+    <input type="hidden" name="anticsrf" value="true">
+    
+    <input 
+        type="email" 
+        class="email-input" 
+        placeholder="Enter your email address" 
+        required
+        name="fields[email]"
+        id="email-signup"
+    >
+    <button type="submit" class="cta-button">
+        Join Waitlist
+    </button>
+</form>
             
             <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
                 No spam, ever. We'll only email you when the beta is ready.
