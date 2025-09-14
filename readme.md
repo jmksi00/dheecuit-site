@@ -1,61 +1,24 @@
-# .github/workflows/deploy.yml - GitHub Actions for secure deployment
-name: Deploy to GitHub Pages
+# README.md - Documentation for your repository
+# DheeCuit Landing Page
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+A modern, responsive landing page for DheeCuit - the AI-powered meal planning app.
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+## 🚀 Features
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+- Responsive design that works on all devices
+- Modern gradient design with smooth animations
+- Working email signup form
+- SEO optimized
+- Security best practices implemented
 
-jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+## 🔒 Security Features
 
----
+- Input sanitization
+- XSS protection
+- Secure form handling
+- HTTPS enforcement
+- Security headers configured
 
-# _config.yml - Jekyll configuration for GitHub Pages
-title: "DheeCuit - Personalized Meal Planning"
-description: "Get custom diet-specific recipes, one-tap grocery lists, and stress-free meal prep — all in one AI-powered app."
-url: "https://yourusername.github.io"
-baseurl: "/dheecuit-website"
+## 📱 Live Demo
 
-# Security settings
-safe: true
-plugins:
-  - jekyll-sitemap
-  - jekyll-feed
-
-# Exclude files from processing
-exclude:
-  - README.md
-  - LICENSE
-  - .gitignore
-
----
+Visit: [https://yourusername.github.io/dheecuit-website](https://yourusername.github.io/dheecuit-website)
