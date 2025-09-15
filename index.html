@@ -338,14 +338,14 @@
                 <p class="price-subtitle">Start with our free plan, then upgrade for premium features</p>
                 
                 <ul class="benefits">
-                    <li><span class="checkmark">✓</span> Basic meal planning</li>
-                    <li><span class="checkmark">✓</span> Essential diet filters</li>
+                    <li><span class="checkmark">✓</span> Basic meal suggestions</li>
+                    <li><span class="checkmark">✓</span> Essential personalization</li>
                     <li><span class="checkmark">✓</span> Shopping list generation</li>
                     <li><span class="checkmark">✓</span> Core recipe collection</li>
                 </ul>
                 
                 <p style="margin-top: 2rem; color: #666; font-size: 0.9rem;">
-                    Premium features coming soon: Advanced meal planning, expanded recipe database, nutrition tracking, and more dietary options.
+                    Premium features coming soon: Advanced personalization, expanded recipe database, family meal planning, and smart kitchen integration.
                 </p>
             </div>
         </div>
@@ -385,38 +385,6 @@
     🎉 <strong>You're on the list!</strong><br>
     We'll email you as soon as the beta is ready.
 </div>
-
-<script>
-function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const email = document.getElementById('email-signup').value;
-    const submitBtn = document.getElementById('submit-btn');
-    const successMessage = document.getElementById('success-message');
-    
-    // Show loading state
-    submitBtn.textContent = 'Joining...';
-    submitBtn.disabled = true;
-    
-    // Submit form in background
-    const formData = new FormData(form);
-    
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-    }).then(() => {
-        // Hide form and show success message
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-    }).catch(() => {
-        // If there's an error, still show success (since no-cors mode)
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-    });
-}
-</script>
             
             <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
                 No spam, ever. We'll only email you when the beta is ready.
@@ -499,3 +467,4 @@ function handleFormSubmit(event) {
     </script>
 </body>
 </html>
+
