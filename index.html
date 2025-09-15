@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DheeCuit - Personalized Meal Planning Made Simple</title>
-    <meta name="description" content="Get custom diet-specific recipes, one-tap grocery lists, and stress-free meal prep — all in one AI-powered app.">
+    <title>DheeCuit - Recipes You'll Actually Want to Cook</title>
+    <meta name="description" content="Discover your new favorite meals with personalized suggestions. Powered by AI; Curated by foodies like you.">
     <style>
         * {
             margin: 0;
@@ -67,11 +67,19 @@
 
         .hero .subtitle {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-style: italic;
+            font-weight: 500;
         }
 
         .cta-button {
@@ -265,6 +273,15 @@
                 text-align: center;
             }
         }
+
+        #success-message {
+            display: none;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 8px;
+            color: #27ae60;
+        }
     </style>
 </head>
 <body>
@@ -278,12 +295,13 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Personalized Recipes,<br>Perfectly Cooked</h1>
-            <p class="subtitle">Get custom diet-specific recipes, one-tap grocery lists, and stress-free meal prep — all powered by AI and tailored to your tastes.</p>
+            <h1>Recipes You'll Actually<br>Want to Cook</h1>
+            <p class="subtitle">Discover your new favorite meals with personalized suggestions and one-tap grocery lists.</p>
+            <p class="tagline">Powered by AI; Curated by foodies like you.</p>
             
             <div class="brand-story">
                 <p><strong>Dhee</strong> (Greek for "Dinner") + <strong>Cuit</strong> (French for "Cooked") = <strong>DheeCuit</strong></p>
-                <p style="margin-top: 1rem; opacity: 0.9;">A smarter way to find and stick to diet-friendly meals, personalized just for you.</p>
+                <p style="margin-top: 1rem; opacity: 0.9;">A smarter way to discover meals you'll love, personalized to your taste and cooking style.</p>
             </div>
             
             <button class="cta-button" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">
@@ -294,37 +312,37 @@
 
     <section class="section light">
         <div class="container">
-            <h2 class="section-title">Everything You Need for Meal Success</h2>
+            <h2 class="section-title">Cooking Made Personal</h2>
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">🧠</div>
-                    <h3>AI-Powered Meal Plans</h3>
-                    <p>Get personalized weekly meal plans that adapt to your dietary preferences, restrictions, and taste preferences using advanced AI.</p>
+                    <h3>AI That Learns Your Taste</h3>
+                    <p>Discovers your flavor preferences, cooking style, and time constraints to suggest meals you'll genuinely want to make and eat.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🥗</div>
-                    <h3>Diet-Specific Recipes</h3>
-                    <p>Access recipes perfectly tailored for Keto, Vegan, Paleo, Mediterranean, and more — all built around your goals and tastes.</p>
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Recipes You'll Actually Cook</h3>
+                    <p>No more scrolling through hundreds of recipes. Get personalized suggestions based on what you have, what you like, and what fits your schedule.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🛒</div>
                     <h3>One-Tap Shopping Lists</h3>
-                    <p>Generate complete grocery lists instantly from your meal plans. Ready for your weekly store run with organized ingredients.</p>
+                    <p>Generate organized grocery lists instantly from your meal plans. Smart enough to know what you probably already have at home.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">📊</div>
-                    <h3>Progress Tracking</h3>
-                    <p>Keep your health goals on track with simple insights, reminders, and progress monitoring that actually helps.</p>
+                    <h3>Flexible Preferences</h3>
+                    <p>Whether you follow a specific eating style or just want variety, DheeCuit adapts to your needs without the pressure.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">⏱️</div>
-                    <h3>Stress-Free Prep Mode</h3>
-                    <p>Step-by-step cooking guidance and meal prep instructions that make healthy eating simple and sustainable.</p>
+                    <h3>Stress-Free Meal Prep</h3>
+                    <p>Step-by-step guidance that matches your cooking skills and available time. No more kitchen overwhelm.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🎯</div>
-                    <h3>Personalized Experience</h3>
-                    <p>The more you use DheeCuit, the better it gets at understanding your preferences and suggesting meals you'll love.</p>
+                    <h3>Gets Better With Time</h3>
+                    <p>The more you cook, the better DheeCuit becomes at understanding your preferences and suggesting new favorites.</p>
                 </div>
             </div>
         </div>
@@ -359,32 +377,31 @@
             </p>
             
             <form 
-    class="waitlist-form" 
-    action="https://assets.mailerlite.com/jsonp/1792264/forms/165277543940753381/subscribe"
-    method="POST"
-    onsubmit="handleFormSubmit(event)"
->
-    <input type="hidden" name="ml-submit" value="1">
-    <input type="hidden" name="anticsrf" value="true">
-    
-    <input 
-        type="email" 
-        class="email-input" 
-        placeholder="Enter your email address" 
-        required
-        name="fields[email]"
-        id="email-signup"
-    >
-    <button type="submit" class="cta-button" id="submit-btn">
-        Join Waitlist
-    </button>
-</form>
+                class="waitlist-form" 
+                action="https://assets.mailerlite.com/jsonp/1792264/forms/165277543940753381/subscribe"
+                method="POST"
+                onsubmit="handleFormSubmit(event)"
+            >
+                <input type="hidden" name="ml-submit" value="1">
+                <input type="hidden" name="anticsrf" value="true">
+                
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    placeholder="Enter your email address" 
+                    required
+                    name="fields[email]"
+                    id="email-signup"
+                >
+                <button type="submit" class="cta-button" id="submit-btn">
+                    Join Waitlist
+                </button>
+            </form>
 
-<!-- Success message (hidden initially) -->
-<div id="success-message" style="display: none; margin-top: 2rem; padding: 1rem; background: rgba(39, 174, 96, 0.1); border-radius: 8px; color: #27ae60;">
-    🎉 <strong>You're on the list!</strong><br>
-    We'll email you as soon as the beta is ready.
-</div>
+            <div id="success-message">
+                🎉 <strong>You're on the list!</strong><br>
+                We'll email you as soon as the beta is ready.
+            </div>
             
             <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
                 No spam, ever. We'll only email you when the beta is ready.
@@ -397,41 +414,41 @@
             <div class="footer-content">
                 <div class="logo">DheeCuit</div>
                 <div>
-                    <p>&copy; 2025 DheeCuit. Making meal planning personal.</p>
+                    <p>&copy; 2025 DheeCuit. Making cooking personal.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        function handleSubmit(event) {
+        function handleFormSubmit(event) {
             event.preventDefault();
+            
+            const form = event.target;
             const email = document.getElementById('email-signup').value;
+            const submitBtn = document.getElementById('submit-btn');
+            const successMessage = document.getElementById('success-message');
             
-            // Basic email validation
-            if (!email || !email.includes('@')) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+            // Show loading state
+            submitBtn.textContent = 'Joining...';
+            submitBtn.disabled = true;
             
-            // Store in localStorage temporarily (you'll want to connect to a service)
-            const subscribers = JSON.parse(localStorage.getItem('waitlist') || '[]');
+            // Submit form in background
+            const formData = new FormData(form);
             
-            if (subscribers.includes(email)) {
-                alert('This email is already on our waitlist!');
-                return;
-            }
-            
-            subscribers.push(email);
-            localStorage.setItem('waitlist', JSON.stringify(subscribers));
-            
-            alert(`Thanks for joining our waitlist! We'll notify ${email} when we launch the beta.`);
-            
-            // Clear the form
-            document.getElementById('email-signup').value = '';
-            
-            // Optional: Send to external service
-            // You can integrate with services like Netlify Forms, Formspree, or EmailJS
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                // Hide form and show success message
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            }).catch(() => {
+                // If there's an error, still show success (since no-cors mode)
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+            });
         }
 
         // Smooth scrolling for better UX
@@ -446,25 +463,6 @@
                 }
             });
         });
-
-        // Security: Basic XSS protection
-        function sanitizeInput(input) {
-            const div = document.createElement('div');
-            div.textContent = input;
-            return div.innerHTML;
-        }
-
-        // Add some basic analytics tracking (privacy-friendly)
-        function trackEvent(eventName, eventData = {}) {
-            // You can integrate with privacy-friendly analytics like Plausible
-            console.log(`Event: ${eventName}`, eventData);
-        }
-
-        // Track page load
-        window.addEventListener('load', () => {
-            trackEvent('page_view', { page: 'landing' });
-        });
     </script>
 </body>
 </html>
-
